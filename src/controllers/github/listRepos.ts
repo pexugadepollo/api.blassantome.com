@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import { GraphQLClient } from 'graphql-request';
 
-export const listRepos = (res: Response) => {
+export const listRepos = (_, res: Response) => {
   const GitHubApi = new GraphQLClient('https://api.github.com/graphql', {
     headers: {
       Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
