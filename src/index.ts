@@ -4,6 +4,7 @@ import express from 'express';
 import { rateLimiter } from './middlewares/rateLimit';
 import helmet from 'helmet';
 import { mailRouter } from './routes/mail';
+import { githubRouter } from './routes/github';
 
 dotenv.config({ path: 'development.env' });
 
@@ -21,6 +22,7 @@ app.use(
 );
 
 app.use('/mail', rateLimiter, mailRouter);
+app.use('/github', rateLimiter, githubRouter);
 
 app.listen(process.env.PORT, () => {
     console.log(`API listening on port ${process.env.PORT}`);
