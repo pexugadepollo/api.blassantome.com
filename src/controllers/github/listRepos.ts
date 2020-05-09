@@ -8,13 +8,16 @@ export const listRepos = (_, res: Response) => {
     },
   });
   const query = `
-{
+  {
     viewer {
       repositories(first: 100, affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER], privacy: PUBLIC) {
         nodes {
           name
           description
           url
+          primaryLanguage{
+            name
+          }
           owner {
             login
           }
