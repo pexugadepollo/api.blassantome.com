@@ -21,8 +21,14 @@ app.use(
   })
 );
 
+
 app.use('/mail', rateLimiter, mailRouter);
 app.use('/github', githubRouter);
+if (process.env.LE_URL && process.env.LE_CONTENT) {
+  app.get(process.env.LE_URL, function(_, res) {
+    return res.send(process.env.LE_CONTENT)
+  });
+}
 app.listen(process.env.PORT, () => {
     console.log(`API listening on port ${process.env.PORT}`);
   })
