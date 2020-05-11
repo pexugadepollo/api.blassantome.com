@@ -1,2 +1,2 @@
 # Api for blassantome.com webpage
-![Heroku](https://pyheroku-badge.herokuapp.com/?app=blassantome-webpage-api)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=blassantome-webpage-api)]
