@@ -16,14 +16,17 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === 'development'
-        ? `http://localhost:${process.env.PORT}`
+        ? `http://localhost:3000`
         : 'https://blassantome.com',
   })
 );
 
 app.use('/mail', rateLimiter, mailRouter);
-app.use('/github', rateLimiter, githubRouter);
-
+app.use('/github', githubRouter);
+app.get('/.well-known/acme-challenge/a-string', function(_, res){
+  const file = `${__dirname}/.well-known/acme-challenge/a-string`;
+  res.download(file); // Set disposition and send it.
+});
 app.listen(process.env.PORT, () => {
     console.log(`API listening on port ${process.env.PORT}`);
   })
