@@ -23,10 +23,6 @@ app.use(
 
 app.use('/mail', rateLimiter, mailRouter);
 app.use('/github', githubRouter);
-app.get('/.well-known/acme-challenge/a-string', function(_, res){
-  const file = `${__dirname}/.well-known/acme-challenge/a-string`;
-  res.download(file); // Set disposition and send it.
-});
 app.listen(process.env.PORT, () => {
     console.log(`API listening on port ${process.env.PORT}`);
   })
