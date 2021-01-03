@@ -17,7 +17,7 @@ app.use(
     origin:
       process.env.NODE_ENV === 'development'
         ? `http://localhost:3000`
-        : 'https://blassantome.com',
+        : 'https://blassantome.me',
   })
 );
 
